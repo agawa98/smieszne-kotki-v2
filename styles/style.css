@@ -18,6 +18,12 @@ input,select,button{
     background-color: #0c7777;
     border: whitesmoke 2px dashed;
 }
+
+
+
+
+/* cat facts */
+
 #catFactButton{
     float: right;
     background-color: #FBE12E;
@@ -30,6 +36,17 @@ input,select,button{
     background-color: #f3d92f;
 }
 
+
+
+
+
+
+/* cat pics */
+
+
+
+
+/* cat generator */
 
 #catGenButton{
     float: right;
@@ -52,12 +69,23 @@ input,select,button{
     padding-left: 1%;
     padding-right: 1%;
 }
+#catGenTagSelectQuestion{
+    
+}
+#catGenHelpBox{
+    position: fixed;
+    display: none;
+    background-color: #f3d92f;
+    border: black solid 3px;
+    color:black;
+    padding: .5rem;
+    width:50vw;
+}
+
 #catGenTitle{
     text-align: center;
     color: #f3d92f;
 }
-
-
 #catGenTxtDiv{
     
 
@@ -78,6 +106,13 @@ input,select,button{
 #catGenWrapper{
     background-color: #0c7777;
 }
+
+
+
+
+
+
+
 #factTranslate{
     color: #0c7777;
     font-weight: 500;
@@ -88,7 +123,23 @@ input,select,button{
 .catGenTxtRow{
     margin-bottom: 2%;
 }
+.catImg{
+    width:100%;
+    height:auto;
+
+}
+.catImgWrapper{
+    background-color: #C3D04A;
+}
 .textbox{
     background-color:#C3D04A;
     border-radius: 1rem;
+}
+
+
+
+@media(min-width:992px){
+    #catGenHelpBox{
+        width: 20vw;
+    }
 }

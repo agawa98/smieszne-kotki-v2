@@ -1,3 +1,5 @@
+//CAT FACT
+
 async function getCatFact(){
     const res = await fetch("https://catfact.ninja/fact")
     const data = await res.json()
@@ -16,6 +18,36 @@ async function insertFactCat(el){
     el.innerHTML += "<a id='factTranslate' target='_blank' href='https://translate.google.pl/?hl=pl&sl=en&tl=pl&text="+fakcik+"'>Przetłumacz</a>"
 
 }
+
+
+
+
+//CAT PICS
+
+var catPicInt = 0
+var data
+
+
+async function newCatPic(){
+    if(catPicInt==0){
+        let res = await fetch("https://api.thecatapi.com/v1/images/search?limit=3")
+        data = await res.json()
+        console.log("asd")
+    }
+    console.log(data)
+    
+    document.getElementById("catPic").src = data[catPicInt].url
+
+    catPicInt++
+    if(catPicInt>=10){
+        catPicInt=0
+    }
+}
+
+
+document.getElementById("catPic").addEventListener("click", ()=>{
+    newCatPic()
+})
 
 
 
@@ -44,9 +76,39 @@ async function getCatTags(){
     }
 }
 
+async function returnTag(){
+    var res = await fetch("https://cataas.com/api/tags")
+    var data = await res.json()
+    for(let i=1; i<data.length; i++){
+        console.log(data[i])
+        let karp = await fetch("https://cataas.com/cat/"+data[i])
+        if(karp == null){
+            console.log("delete:  "+data[i])
+        }
+    }
+        
+}
+
+function catGenHelp(){
+    let box = document.getElementById("catGenHelpBox")
+    let icon = document.getElementById("catGenTagSelectQuestion")
+    box.style.display = "block"
+    box.style.left = window.scrollX+icon.getBoundingClientRect().right - box.clientWidth - icon.clientWidth*2 +"px"
+    box.style.top = window.scrollY + icon.getBoundingClientRect().top +"px"
+
+}
+
+
 document.getElementById("catGenButton").addEventListener("click", async()=>{
     generateCat()
 })
+
+document.getElementById("catGenTagSelectQuestion").addEventListener("mouseover", catGenHelp)
+
+document.getElementById("catGenTagSelectQuestion").addEventListener("mouseout",()=>{
+    document.getElementById("catGenHelpBox").style.display = "none"
+    console.log("asdasd")
+} )
 
 
 
