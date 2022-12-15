@@ -1,0 +1,94 @@
+*{
+    box-sizing: border-box
+}
+body{
+    background-color: #0E9493;
+}
+input,select,button{
+    border-radius: .3em;
+    border: 0;
+}
+ 
+
+#logo{
+    color:#FBE12E;
+    font-size: 2.5rem;
+    border-radius: 1rem;
+    width: fit-content;
+    background-color: #0c7777;
+    border: whitesmoke 2px dashed;
+}
+#catFactButton{
+    float: right;
+    background-color: #FBE12E;
+    color:black;
+    border-color: black;
+
+    transition: 0.2s;
+}
+#catFactButton:hover{
+    background-color: #f3d92f;
+}
+
+
+#catGenButton{
+    float: right;
+}
+#catGenImg{
+    border:white 2px dashed;
+    width: 100%;
+    height:auto;
+}
+#catGenInputWrapper{
+    background-color: #C3D04A;
+    border-radius:.5rem;
+}
+#catGenOutputWrapper{
+    
+}
+#catGenTagSelect{
+    width:45%;
+    float: left;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+#catGenTitle{
+    text-align: center;
+    color: #f3d92f;
+}
+
+
+#catGenTxtDiv{
+    
+
+}
+#catGenTxt1{
+    width:fit-content;
+    float:left;
+    margin-right: 3%;
+}
+#catGenTxt2{
+    width:fit-content;
+    float:left;
+    margin-right: 3%;
+}
+#catGenTxtInput{
+    
+}
+#catGenWrapper{
+    background-color: #0c7777;
+}
+#factTranslate{
+    color: #0c7777;
+    font-weight: 500;
+}
+
+
+
+.catGenTxtRow{
+    margin-bottom: 2%;
+}
+.textbox{
+    background-color:#C3D04A;
+    border-radius: 1rem;
+}

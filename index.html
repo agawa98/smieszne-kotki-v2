@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <title>Śmieszne kotki</title>
+</head>
+<body class="">
+<div class="container">
+    <div id="leftpanel" class="col-lg-7 float-lg-start">
+        <div class="row mt-4" id="top">
+            <div id="logoWrapper">
+                <h1 id="logo" class="p-2 px-3">Śmieszne kotki</h1>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="textbox p-2" id="catFactWrapper">
+                <div id="catFactText" class="p-2">
+                    Czekam na fakcik...
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="rightpanel" class="col-lg-5 float-lg-end">
+        <div id="catGenWrapper" class="col-12 ms-lg-5 mt-lg-5">
+            <div class="row p-1 pt-2">
+                <h3 id="catGenTitle" class="">Generator gadających kotków</h3>
+            </div>
+            <div class="row p-4 pt-1">
+                <div id="catGenOutputWrapper" class="col-12">
+                    <img id="catGenImg" src="img/catThink.png">
+                </div>
+            </div>
+            <div class="row p-4 pt-0">
+                <div id="catGenInputWrapper" class="col-12 p-3">
+                    <div class="catGenTxtRow">
+                        <label id="catGenTxt1">wybierz tag:</label>&nbsp;<select id="catGenTagSelect" >
+                            <option selected>wybierz tag...</option>
+                        </select>&nbsp;
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-question-circle" viewBox="0 2 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                        </svg>
+                    </div>
+                    <div id="catGenTxtDiv" class="catGenTxtRow">
+                        <label id="catGenTxt2">wpisz co ma mówić kotek: </label>
+                        <input id="catGenTxtInput" type="text" placeholder="miau miau">
+                    </div>  
+                    <button id="catGenButton">Generuj</button>
+
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<script src="scripts/main.js"></script>
+</body>
+</html>
+
