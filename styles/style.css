@@ -1,5 +1,5 @@
 *{
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 body{
     background-color: #0E9493;
@@ -24,35 +24,61 @@ input,select,button{
 
 /* cat facts */
 
-#catFactButton{
-    float: right;
-    background-color: #FBE12E;
-    color:black;
-    border-color: black;
 
-    transition: 0.2s;
+
+/* cat compendium */
+#catCompWrapper{
+    background-color: #0c7777;
+    padding:0;
+    height:50vh;
+    border-radius: 1rem;
 }
-#catFactButton:hover{
-    background-color: #f3d92f;
+#catCompImgWrapper{
+    width: 50%;
+    float:left;
+}
+#catCompImg{
+    width:90%;
+    height:auto;
+    margin:5%;
+    border: whitesmoke 2px dashed;
+}
+#catCompInfoWrapper{
+    float:right;
+    width:45%;
+    margin-right:5%;
+
+    text-align: left;
+}
+#catCompInfoTitleWrapper{
+    text-align: center;
+    padding: 3%;
+    color: #FBE12E;
+}
+#catCompInfoBreedPick{
+    background-color: #9ea756;
+    padding: 1rem;
+}
+#catCompInfoBreedInfo{
+    background-color: #C3D04A;
+    padding: 1rem;
 }
 
-
-
-
-
-
-/* cat pics */
-
-
-
+.catCompInfoLeadText{
+    font-weight: 500;
+}
 
 /* cat generator */
 
+
+#catGenWrapper{
+    border-radius: 1rem;
+}
 #catGenButton{
     float: right;
 }
 #catGenImg{
-    border:white 2px dashed;
+    border: whitesmoke 2px dashed;
     width: 100%;
     height:auto;
 }
@@ -84,7 +110,7 @@ input,select,button{
 
 #catGenTitle{
     text-align: center;
-    color: #f3d92f;
+    color: #FBE12E;
 }
 #catGenTxtDiv{
     
@@ -117,19 +143,8 @@ input,select,button{
     color: #0c7777;
     font-weight: 500;
 }
-
-
-
 .catGenTxtRow{
     margin-bottom: 2%;
-}
-.catImg{
-    width:100%;
-    height:auto;
-
-}
-.catImgWrapper{
-    background-color: #C3D04A;
 }
 .textbox{
     background-color:#C3D04A;
