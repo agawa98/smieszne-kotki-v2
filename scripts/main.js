@@ -10,7 +10,7 @@ async function insertFactCat(el){
     let fakcik = await getCatFact()
     el.innerText = fakcik + " "
     
-    //zastepuje spacje znakiem %20 ktory oznacza spacje we linku w tlumaczu
+    //zastepuje spacje znakiem %20 ktory oznacza spacje w linku w tlumaczu
     while(fakcik.indexOf(" ")>0){
         fakcik=fakcik.replace(" ","%20")
     }
@@ -66,28 +66,110 @@ function addOptions(){
 }
 
 async function showInfo(){
-    clearInterval(getPhotoInt)
     let catID = document.getElementById("catCompBreedSelect").value
     console.log(catID)
     
     getBreedPhoto(catID)
-    getPhotoInt = setInterval(async ()=>{
-        getBreedPhoto(catID)
-    }, 3000)
 
     getBreedInfo(catID)
 }
 
 async function getBreedPhoto(catID){
+    clearTimeout(getPhotoInt)
     var res = await fetch("https://api.thecatapi.com/v1/images/search?breed_ids="+catID)
     var data = await res.json()
     if(data[0].id == currentPhotoID){
-       //  console.log(document.getElementById("catCompWrapper").clientHeight + " < "+data[0].height)                                   TODO
         getBreedPhoto(catID)
     }
     document.getElementById("catCompImg").src = data[0].url
     currentPhotoID = data[0].id
+
+    getPhotoInt = setTimeout(()=>{
+        console.log("set " + catID)
+        getBreedPhoto(catID)
+    },5000)
 }
+
+
+// V V tryb wielu zdjec V V
+
+// var currentKitty
+// var currentKitty2
+// var kittyArray = []
+// var kittyInterval
+
+// function kittyRandom(){
+//     let r = Math.floor(Math.random()*kittyArray.length)
+//     if(r == currentKitty || r == currentKitty2){
+//         kittyRandom()
+//     }
+//     return r
+// }
+
+// async function getBreedPhotos(catID){
+//     //czyszczenie
+//     clearInterval(kittyInterval)
+//     document.getElementById("catCompImg2").src = ""
+
+//     var res = await fetch("https://api.thecatapi.com/v1/images/search?breed_ids="+catID+"&limit=6")
+//     var data = await res.json()
+
+//     kittyArray = []
+
+//     for(let i=0; i<data.length; i++){
+//         let kittyRatio = data[i].width/data[i].height
+//         kittyArray[i] = [data[i].url,kittyRatio.toFixed(2)]
+//         console.log(kittyArray[i])
+//     }
+
+//     currentKitty = kittyRandom()
+//     document.getElementById("catCompImg").src = kittyArray[currentKitty][0] 
+//     fitAnotherKitty()
+
+//     kittyInterval = setInterval(() => {
+//         currentKitty = kittyRandom()
+//         document.getElementById("catCompImg").src = kittyArray[currentKitty][0]
+//         fitAnotherKitty()
+//     }, 5000);
+
+// }
+
+// //obliczanie totalnej wysokosci czyli wysokosc + margin + padding + border
+// function totalHeight(el){
+//     return el.clientHeight + el.style.marginLeft + el.style.marginRight + el.style.borderRightWidth + el.style.borderLeftWidth
+// }
+
+// function totalWidth(el){
+//     return el.clientWidth + el.style.marginTop + el.style.marginBottom + el.style.borderTopWidth + el.style.borderBottomWidth
+// }
+
+// function fitAnotherKitty(){
+//     let heightLeft = totalHeight(document.getElementById("catCompWrapper")) - totalHeight(document.getElementById("catCompImgWrapper"))
+//     let widthLeft = totalWidth(document.getElementById("catCompWrapper")) - totalWidth(document.getElementById("catCompInfoWrapper"))
+//     let freeSpaceRatio = widthLeft/heightLeft
+//     console.log("fSR: "+freeSpaceRatio + " = " + widthLeft + " / " + heightLeft)
+
+//     for(let i = 0; i<kittyArray.length; i++){
+
+//         //nie moze sie wylosowac ten sam kotek
+//         if(i==currentKitty || i==currentKitty2){
+//             continue
+//         }
+
+//         //wieksze ratio -> zdj jest szersze
+//         if(kittyArray[i][1]>freeSpaceRatio){
+//             console.log("zmiesci sie")
+//             currentKitty2 = i
+//             document.getElementById("catCompImg2").style.display = "block"
+//             document.getElementById("catCompImg2").src = kittyArray[i][0]
+//             return
+//         }
+//     }
+//     //wykonuje sie jesli nie znajdzie zadnego pasujacego zdj
+
+//     document.getElementById("catCompImg2").style.display = "none"
+
+// }
 
 async function getBreedInfo(catID){
     var res = await fetch("https://api.thecatapi.com/v1/breeds/"+catID)
@@ -103,15 +185,23 @@ document.getElementById("catCompBreedSelect").addEventListener("change",showInfo
 
 //CAT GENERATOR
 
+
+
 async function generateCat(){
     var tag = document.getElementById("catGenTagSelect").value
     var tekst = document.getElementById("catGenTxtInput").value
 
-    const res = await fetch("https://cataas.com/cat/"+tag+"/says/"+tekst)
+    document.getElementById("catGenLoading").style.display = "block"
 
-    document.getElementById("catGenImg").src = String(res.url)
+    fetch("https://cataas.com/cat/"+tag+"/says/"+tekst)
+    .then(res=>{
+        document.getElementById("catGenLoading").style.display = "none"
+        document.getElementById("catGenImg").src = String(res.url)
+    })
+
 }
 
+//wsadzenie tagow do selecta
 async function getCatTags(){
     var res = await fetch("https://cataas.com/api/tags")
     var data = await res.json()
@@ -141,33 +231,14 @@ async function returnTag(){
         
 }
 
+document.getElementById("catGenButton").addEventListener("click", async()=>{
+    generateCat()
+})
 
 
-// przycisk pokazujacy ze nie ma danego tagu dla kota
+//  CAT GALLERY
 
-// function catGenHelp(){
-//     let box = document.getElementById("catGenHelpBox")
-//     let icon = document.getElementById("catGenTagSelectQuestion")
-//     box.style.display = "block";
-    
-//     box.style.left = window.scrollX+icon.getBoundingClientRect().right - box.clientWidth - icon.clientWidth*2 +"px"
-//     box.style.top = window.scrollY + icon.getBoundingClientRect().top +"px"
-
-// }
-
-
-// document.getElementById("catGenButton").addEventListener("click", async()=>{
-//     generateCat()
-// })
-
-// document.getElementById("catGenTagSelectQuestion").addEventListener("mouseover", catGenHelp)
-
-// document.getElementById("catGenTagSelectQuestion").addEventListener("mouseout",()=>{
-//     document.getElementById("catGenHelpBox").style.display = "none";
-// } )
-
-
-
+// if(odleglosc miedzy dolem kompenidum i generatorem jest wieksza niz dajmy 300px oraz user jest na monitorze wikersztm niz 1000 px to wyswietl galerie)
 
 
 //funkcja do dopasowywania szerokosci elementu gdy jeden jest staly a drugi moze byc zmienny
@@ -203,11 +274,17 @@ function resize(staly, zmienny, minwidth, marginspace){
 
 window.addEventListener("resize",()=>{
     resize(document.getElementById("catGenTxt2"),document.getElementById("catGenTxtInput"), 60, 3)
+
+    resize(document.getElementById("catBreedLabel"), document.getElementById("catCompBreedSelect"), 60, 0)
+    
 })
 
 window.addEventListener("load",()=>{
 
     resize(document.getElementById("catGenTxt2"),document.getElementById("catGenTxtInput"))
+
+    resize(document.getElementById("catBreedLabel"), document.getElementById("catCompBreedSelect"), 60, 0)
+
 
     getCatTags()
     

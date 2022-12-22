@@ -8,6 +8,9 @@ input,select,button{
     border-radius: .3em;
     border: 0;
 }
+.clear{
+    clear: both;
+}
  
 
 #logo{
@@ -19,49 +22,85 @@ input,select,button{
     border: whitesmoke 2px dashed;
 }
 
+#leftpanel{
+    float: left;
+    width:52.5%;
+    margin-right: 2.5%;
+}
+#rightpanel{
+    float: right;
+    width:42.5%;
+    margin-left: 2.5%;
+}
+
 
 
 
 /* cat facts */
 
 
+#factTranslate{
+    color: #0c7777;
+    font-weight: 500;
+}
+
 
 /* cat compendium */
 #catCompWrapper{
     background-color: #0c7777;
     padding:0;
-    height:50vh;
     border-radius: 1rem;
+    margin-bottom: 5%;
 }
 #catCompImgWrapper{
     width: 50%;
     float:left;
+    height: 100%;
 }
-#catCompImg{
+.catCompImg{
     width:90%;
     height:auto;
     margin:5%;
     border: whitesmoke 2px dashed;
+    border-radius: .5rem;
+    float:left;
 }
+
+
 #catCompInfoWrapper{
     float:right;
-    width:45%;
-    margin-right:5%;
-
+    width:47.5%;
+    margin-right:2.5%;
+    margin-bottom: 5%;
     text-align: left;
+    
 }
-#catCompInfoTitleWrapper{
+#catCompTitleWrapper{
     text-align: center;
-    padding: 3%;
+    margin:2%;
+    margin-right: 4.5%;
+    width:43.5%;
     color: #FBE12E;
+    border-radius: 1rem;
+    float:right;
+}
+#catCompTitle{
+    font-size: 1.75em;
 }
 #catCompInfoBreedPick{
     background-color: #9ea756;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
     padding: 1rem;
+}
+#catCompBreedSelect{
+    width:50%;
 }
 #catCompInfoBreedInfo{
     background-color: #C3D04A;
     padding: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 }
 
 .catCompInfoLeadText{
@@ -73,6 +112,8 @@ input,select,button{
 
 #catGenWrapper{
     border-radius: 1rem;
+    padding:3.5%;
+    padding-top: 2%;
 }
 #catGenButton{
     float: right;
@@ -81,13 +122,33 @@ input,select,button{
     border: whitesmoke 2px dashed;
     width: 100%;
     height:auto;
+border-radius: .5rem;
 }
 #catGenInputWrapper{
+    margin-top:3.5%;
     background-color: #C3D04A;
     border-radius:.5rem;
-}
-#catGenOutputWrapper{
+    padding:3%;
     
+}
+
+#catGenOutputWrapper{
+    position: relative;
+}
+#catGenLoading{
+    background-color: rgba(255, 255, 255, 0.767);
+    width:94%;
+    height:100%;
+    display:none;
+    position: absolute;
+    top:0;
+    left:3%;
+
+}
+#catGenLoadingText{
+    position:relative;
+    top:48%;
+    left:40%;
 }
 #catGenTagSelect{
     width:45%;
@@ -111,6 +172,7 @@ input,select,button{
 #catGenTitle{
     text-align: center;
     color: #FBE12E;
+
 }
 #catGenTxtDiv{
     
@@ -139,10 +201,6 @@ input,select,button{
 
 
 
-#factTranslate{
-    color: #0c7777;
-    font-weight: 500;
-}
 .catGenTxtRow{
     margin-bottom: 2%;
 }
@@ -157,4 +215,45 @@ input,select,button{
     #catGenHelpBox{
         width: 20vw;
     }
+}
+@media(max-width:768px){
+    #logoWrapper{
+        text-align: center;
+    }
+    #rightpanel{
+        width: 98%;
+        margin:1%;
+    }
+    #leftpanel{
+        width: 92%;
+        margin:4%;
+    }
+    #catCompTitleWrapper{
+        width:90%;
+        margin:5%;
+        margin-bottom: 0;
+    }
+    #catCompImgWrapper{
+        width:100%;
+        margin-bottom: 0;
+        height: auto;
+    }
+    #catCompInfoWrapper{
+        width:90%;
+        margin:5%;
+    }
+
+    #catGenWrapper{
+        /* margin-left: -12px;
+        margin-right: -12px; */
+
+        padding:5%;
+        padding-top: 2%;
+        width: 100%;
+    }
+    #catGenTitle{
+        margin-bottom: 2.5%;
+    }
+    
+
 }
