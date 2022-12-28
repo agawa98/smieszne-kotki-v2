@@ -189,11 +189,16 @@ document.getElementById("catCompBreedSelect").addEventListener("change",showInfo
 
 async function generateCat(){
     var tag = document.getElementById("catGenTagSelect").value
-    var tekst = document.getElementById("catGenTxtInput").value
+    var tekst = "/says/" + document.getElementById("catGenTxtInput").value
+
+    //jesli input jest pusty, to usun parametr z fetcha
+    if(tekst=="/says/"){
+        tekst=""
+    }
 
     document.getElementById("catGenLoading").style.display = "block"
 
-    fetch("https://cataas.com/cat/"+tag+"/says/"+tekst)
+    fetch("https://cataas.com/cat/"+tag+tekst)
     .then(res=>{
         document.getElementById("catGenLoading").style.display = "none"
         document.getElementById("catGenImg").src = String(res.url)
