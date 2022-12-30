@@ -55,30 +55,48 @@
 
     <div id="rightpanel">
         <div id="catGenWrapper" class="col-12 mt-lg-5">
-                <h3 id="catGenTitle" class="">Generator gadających kotków</h3>
+            <h3 id="catGenTitle" class="">Generator gadających kotków</h3>
 
-                <div id="catGenOutputWrapper" class="col-12">
-                    <div id="catGenLoading">
-                        <span id="catGenLoadingText">Ładowanie...</span>
-                    </div>
-                    <img id="catGenImg" src="img/catThink.png">
+            <div id="catGenOutputWrapper" class="col-12">
+                <div id="catGenLoading">
+                    <span id="catGenLoadingText">Ładowanie...</span>
+                </div>
+                <img id="catGenImg" src="img/catThink.png">
+            </div>
+
+            <div id="catGenInputWrapper" class="col-12">
+                <div class="catGenTxtRow">
+                    <label id="catGenTxt1">wybierz tag:</label>&nbsp;<select required id="catGenTagSelect" placeholder="asd">
+                    </select> 
                 </div>
 
-                <div id="catGenInputWrapper" class="col-12">
-                    <div class="catGenTxtRow">
-                        <label id="catGenTxt1">wybierz tag:</label>&nbsp;<select required id="catGenTagSelect" placeholder="asd">
-                        </select> 
-                    </div>
-
-                    <div id="catGenTxtDiv" class="catGenTxtRow">
-                        <label id="catGenTxt2">wpisz co ma mówić kotek: </label>
-                        <input id="catGenTxtInput" type="text" placeholder="miau miau">
-                    </div>
-                    <button type="submit" id="catGenButton">Generuj</button>
-                    <div class="clear"></div>
+                <div id="catGenTxtDiv" class="catGenTxtRow">
+                    <label id="catGenTxt2">wpisz co ma mówić kotek: </label>
+                    <input id="catGenTxtInput" type="text" placeholder="miau miau">
                 </div>
-
+                <button type="submit" id="catGenButton">Generuj</button>
+                <div class="clear"></div>
+            </div>
         </div>
+        <div id="creditsWrapper" class="noTransition">
+            <div id="creditsPull">
+                użyte API:
+            </div>
+            <div id="creditsContent">
+                <ul>
+                    <li>
+                        <a href="https://cataas.com/#/" target="_blank">gadające kotki</a>
+                    </li>
+                    <li>
+                        <a href="https://catfact.ninja/" target="_blank">fakty o kotkach</a>
+                    </li>
+                    <li>
+                        <a href="https://thecatapi.com/" target="_blank">kompendium kotków</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
     </div>
 
 

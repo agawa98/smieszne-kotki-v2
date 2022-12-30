@@ -241,7 +241,7 @@ document.getElementById("catGenButton").addEventListener("click", async()=>{
 })
 
 
-//  CAT GALLERY
+//  CAT GALLERY - todo
 
 // if(odleglosc miedzy dolem kompenidum i generatorem jest wieksza niz dajmy 300px oraz user jest na monitorze wikersztm niz 1000 px to wyswietl galerie)
 
@@ -275,6 +275,14 @@ function resize(staly, zmienny, minwidth, marginspace){
 
 
 
+//  CREDITS
+
+document.getElementById("creditsWrapper").addEventListener("mouseover",()=>{
+    document.getElementById("creditsWrapper").classList.remove("noTransition")
+})
+
+
+
 
 
 window.addEventListener("resize",()=>{
@@ -284,8 +292,9 @@ window.addEventListener("resize",()=>{
     
 })
 
-window.addEventListener("load",()=>{
-
+window.addEventListener("load",()=>{    
+    
+    
     resize(document.getElementById("catGenTxt2"),document.getElementById("catGenTxtInput"))
 
     resize(document.getElementById("catBreedLabel"), document.getElementById("catCompBreedSelect"), 60, 0)

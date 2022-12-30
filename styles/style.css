@@ -32,6 +32,11 @@ input,select,button{
     width:42.5%;
     margin-left: 2.5%;
 }
+a{
+    color: #0a6666;
+    font-weight: 500;
+    text-decoration: none;
+}
 
 
 
@@ -196,7 +201,51 @@ border-radius: .5rem;
 }
 
 
-
+/* credits */
+#creditsWrapper{
+    display: inline-block;
+    position:fixed;
+    bottom: 0;
+    right: 1%;
+    transition: .6s;
+    transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    /* prosze nie bic, nie dalo sie inaczej tego zrobic bez usuwania transition (przynajjmniej nie wiem jak) */
+    transform: translateY(76.71%);
+}
+#creditsWrapper:hover{
+    transform: translateY(0%);
+}
+#creditsPull{
+    padding:.2rem;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    background-color: #C3D04A;
+    display: inline-block;
+    left:50%;
+    position: relative;
+    transform: translateX(-50%);
+    transition: inherit;
+    border: 2px dashed white;
+    border-bottom: none;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+#creditsContent{
+    background-color: #C3D04A;
+    padding:.75rem;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    border: 2px dashed white;
+    transition: inherit;
+}
+#creditsContent > ul{
+    padding-left: 1rem;
+    margin:0;
+}
+/* uzywam tej klasy bo jak strona sie laduje po raz 1 to menu sie transitionuje na dol */
+.noTransition{
+    transition: 0 !important;
+}
 
 
 
