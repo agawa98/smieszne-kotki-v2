@@ -41,6 +41,7 @@ a{
 
 
 
+
 /* cat facts */
 
 
@@ -55,7 +56,6 @@ a{
     background-color: #0c7777;
     padding:0;
     border-radius: 1rem;
-    margin-bottom: 5%;
 }
 #catCompImgWrapper{
     width: 50%;
@@ -248,6 +248,88 @@ border-radius: .5rem;
 }
 
 
+/* RANDOM CAT */
+
+#randomCatDiv{
+    float: left;
+    background-color: #0c7777;
+    padding:1rem;
+    width: calc(100% + 12px);
+    margin-top: 1vw;
+    /* ten margin jest po to aby zostawic troche miejsca miedzy contentem a dolem monitora */
+    margin-bottom: 10vw;
+    overflow: hidden;
+    border-radius: 1rem;
+    margin-left: -12px;
+}
+#randomCatTitle{
+    text-align: center;
+    color: #FBE12E;
+    margin-bottom: 1%;
+}
+#randomCatImgWrapper{
+    width:55%;
+    float:left;
+    text-align: center;
+}
+#randomCatImg{
+    position:relative;
+    height: 100%;
+    width:auto;
+    max-width: 100%;
+    top:28%;
+    left:68%;
+    transform: scale(0);
+    border: 2px dashed white;
+    border-radius: .5rem;
+}
+#randomCatClickMe{
+    width:auto;
+    height: 100%;
+}
+#randomCatGifWrapper{
+    width:45%;
+    float:right;
+    padding-right: 5%;
+}
+#randomCatGif{
+    width:100%;
+    height: auto;
+}
+#randomButtonWrapper{
+    float: right;
+}
+.wylosowany{
+    animation-duration: 2s;
+    animation-name: los;
+    animation-fill-mode: forwards;
+}
+@keyframes los{
+    0%{
+        transform: scale(0);
+    }
+
+    100%{
+        transform: scale(1);
+        top:0;
+        left:0;       
+    }
+}
+.fade{
+    animation-duration: .3s;
+    animation-name: fade;
+    animation-fill-mode: forwards;
+}
+@keyframes fade{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+
 
 
 .catGenTxtRow{
@@ -257,6 +339,7 @@ border-radius: .5rem;
     background-color:#C3D04A;
     border-radius: 1rem;
 }
+
 
 
 
@@ -304,5 +387,10 @@ border-radius: .5rem;
         margin-bottom: 2.5%;
     }
     
-
+    #randomCatDiv{
+        
+        width: 98%;
+        margin:1%;
+        margin-top: 5%;
+    }
 }

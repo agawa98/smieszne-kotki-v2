@@ -53,6 +53,7 @@
         </div>
     </div>
 
+
     <div id="rightpanel">
         <div id="catGenWrapper" class="col-12 mt-lg-5">
             <h3 id="catGenTitle" class="">Generator gadających kotków</h3>
@@ -77,36 +78,45 @@
                 <button type="submit" id="catGenButton">Generuj</button>
                 <div class="clear"></div>
             </div>
+        </div>    
+    </div>
+
+
+    <div id="randomCatDiv">
+        <div id="randomCatTitle">
+            <h3>Losowanie kotków</h3>
         </div>
-        <div id="creditsWrapper" class="noTransition">
-            <div id="creditsPull">
-                użyte API:
-            </div>
-            <div id="creditsContent">
-                <ul>
-                    <li>
-                        <a href="https://cataas.com/#/" target="_blank">gadające kotki</a>
-                    </li>
-                    <li>
-                        <a href="https://catfact.ninja/" target="_blank">fakty o kotkach</a>
-                    </li>
-                    <li>
-                        <a href="https://thecatapi.com/" target="_blank">kompendium kotków</a>
-                    </li>
-                </ul>
-            </div>
+        <div id="randomCatGifWrapper">
+            <img id="randomCatGif" src="img/randomCat/idle.png">
         </div>
-        
+        <div id="randomCatImgWrapper">
+            <img id="randomCatImg">
+            <img id="randomCatClickMe" src="img/clickMe.png">
+        </div>      
+    </div>
+
+
+    <div id="creditsWrapper" class="noTransition">
+        <div id="creditsPull">
+            użyte API:
+        </div>
+        <div id="creditsContent">
+            <ul>
+                <li>
+                    <a href="https://cataas.com/#/" target="_blank">gadające kotki</a>
+                </li>
+                <li>
+                    <a href="https://catfact.ninja/" target="_blank">fakty o kotkach</a>
+                </li>
+                <li>
+                    <a href="https://thecatapi.com/" target="_blank">kompendium kotków</a>
+                </li>
+            </ul>
+        </div>
     </div>
 
 
 <script src="scripts/main.js"></script>
-<script src="scripts/fittext.js"></script>
-<script>
-    window.fitText(document.getElementById("catCompTitle"));
-    window.fitText(document.getElementById("catGenTitle"), 1.6);
-</script>
-
 
 </body>
 </html>

@@ -22,27 +22,6 @@ async function insertFactCat(el){
 
 
 
-//CAT PICS
-
-var catPicInt = 0
-var data
-
-
-async function newCatPic(){
-    if(catPicInt==0){
-        let res = await fetch("https://api.thecatapi.com/v1/images/search?limit=3")
-        data = await res.json()
-        console.log("asd")
-    }
-    console.log(data)
-    
-    document.getElementById("catPic").src = data[catPicInt].url
-
-    catPicInt++
-    if(catPicInt>=10){
-        catPicInt=0
-    }
-}
 
 
 
@@ -223,19 +202,6 @@ async function getCatTags(){
     }
 }
 
-async function returnTag(){
-    var res = await fetch("https://cataas.com/api/tags")
-    var data = await res.json()
-    for(let i=1; i<data.length; i++){
-        console.log(data[i])
-        let karp = await fetch("https://cataas.com/cat/"+data[i])
-        if(karp == null){
-            console.log("delete:  "+data[i])
-        }
-    }
-        
-}
-
 document.getElementById("catGenButton").addEventListener("click", async()=>{
     generateCat()
 })
@@ -275,6 +241,90 @@ function resize(staly, zmienny, minwidth, marginspace){
 
 
 
+//CAT RANDOMIZER
+
+var catPicInt = 0
+var data
+
+
+async function newCatPic(){
+    //clickme
+    if(document.getElementById("randomCatImgWrapper").contains(document.getElementById("randomCatClickMe"))==true){
+        document.getElementById("randomCatClickMe").className = "fade"
+        setTimeout(()=>{
+            document.getElementById("randomCatClickMe").remove()
+        },340)
+    }
+    
+
+    document.getElementById("randomCatGif").removeEventListener("click", newCatPic)
+
+    document.getElementById("randomCatImg").className = "fade"
+
+    //musialem usuwac i tworzyc element na nowo poniewaz inaczej nie dzialala animacja
+    document.getElementById("randomCatImg").remove()
+    let cat = document.createElement("img")
+    cat.id = "randomCatImg"
+    document.getElementById("randomCatImgWrapper").appendChild(cat)
+
+
+
+
+    //wstawianie gifa losujacego kota
+    document.getElementById("randomCatGif").src = "img/randomCat/los"+Math.floor(Math.random()*2+1)+".gif"
+    
+
+    if(catPicInt==0){
+        let res = await fetch("https://api.thecatapi.com/v1/images/search?limit=3")
+        
+        data = await res.json()
+        console.log(data)
+    }
+
+    
+
+    
+    // odrzucanie zdjec ktore sa bardziej wezsze niz wyzsze (pionowe)
+    if(data[catPicInt].width<data[catPicInt].height){
+        catPicInt++
+        return newCatPic()
+    }
+
+
+    cat.src = data[catPicInt].url
+
+    //dalem troche wczesniej zeby byl fajny efekt
+    setTimeout(()=>{
+        document.getElementById("randomCatGif").src = "img/randomCat/end.png"
+    },2800)
+
+    setTimeout(()=>{
+
+        //ten classname odpowiada za transformowanie kotka        
+        cat.className = "wylosowany"
+    }, 3000)
+
+    setTimeout(()=>{
+        document.getElementById("randomCatGif").src = "img/randomCat/idle.png"
+
+        //wlaczanie z powrotem losowania
+        document.getElementById("randomCatGif").addEventListener("click", newCatPic)
+    }, 4000)
+    
+
+
+    catPicInt++
+    
+    if(catPicInt>=10){
+        catPicInt=0
+    }
+}
+
+
+var randomCatEvent = document.getElementById("randomCatGif").addEventListener("click",newCatPic)
+
+
+
 //  CREDITS
 
 document.getElementById("creditsWrapper").addEventListener("mouseover",()=>{
@@ -290,11 +340,17 @@ window.addEventListener("resize",()=>{
 
     resize(document.getElementById("catBreedLabel"), document.getElementById("catCompBreedSelect"), 60, 0)
     
+    document.getElementById("randomCatImg").style.height = document.getElementById("randomCatGif").clientHeight + "px"
+
+    document.getElementById("randomCatImgWrapper").style.height = document.getElementById("randomCatGifWrapper").clientHeight + "px"
 })
 
 window.addEventListener("load",()=>{    
+
     
-    
+
+    document.getElementById("randomCatImgWrapper").style.height = document.getElementById("randomCatGifWrapper").clientHeight + "px"
+
     resize(document.getElementById("catGenTxt2"),document.getElementById("catGenTxtInput"))
 
     resize(document.getElementById("catBreedLabel"), document.getElementById("catCompBreedSelect"), 60, 0)
