@@ -287,6 +287,9 @@ async function newCatPic(){
     // odrzucanie zdjec ktore sa bardziej wezsze niz wyzsze (pionowe)
     if(data[catPicInt].width<data[catPicInt].height){
         catPicInt++
+        if(catPicInt>=10){
+            catPicInt=0
+        }
         return newCatPic()
     }
 
