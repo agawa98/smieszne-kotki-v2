@@ -1,5 +1,8 @@
+
 *{
     box-sizing: border-box;
+    /* to bylo najrozsadniejsze podejscie mysle */
+    cursor: url("../img/cursors/cursor.png"),url("../img/cursors/cursory1.png"),url("../img/cursors/cursory2.png"),url("../img/cursors/cursory3.png"),url("../img/cursors/cursory4.png"),url("../img/cursors/cursory5.png"),url("../img/cursors/cursorx1.png"),url("../img/cursors/cursorx2.png"),url("../img/cursors/cursorx3.png"),url("../img/cursors/cursorx4.png"),url("../img/cursors/cursorx5.png"), auto;
 }
 body{
     background-color: #0E9493;

@@ -2,6 +2,7 @@
 
 async function getCatFact(){
     const res = await fetch("https://catfact.ninja/fact")
+    console.log(res)
     const data = await res.json()
     return data.fact
 }
